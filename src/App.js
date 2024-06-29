@@ -34,7 +34,7 @@ const Dashboard = () => {
             { label: 'In Progress', value: 54, color: '#2196f3' },
           ].map((item, index) => (
             <div key={index} className="card" style={{ backgroundColor: item.color }}>
-              <Pie data={{ ...data, datasets: [{ ...data.datasets[0], data: [item.value, 100 - item.value], backgroundColor: [item.color, '#e0e0e0'] }] }} />
+              <Pie data={{ ...data, datasets: [{ ...data.datasets[0], data: [item.value, 77 - item.value], backgroundColor: [item.color, '#e0e0e0'] }] }} />
               <div className="card-label">{item.label}</div>
               <div className="card-value">{item.value}</div>
             </div>
