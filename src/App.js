@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
-import { IoIosCheckmarkCircle } from 'react-icons/io';
-import { IoIosCheckmark } from "react-icons/io";
+import { IoIosCheckmarkCircle, IoIosCheckmark } from 'react-icons/io';
 import { BsThreeDots } from "react-icons/bs";
 import { GrTextAlignFull } from "react-icons/gr";
 
@@ -14,6 +13,17 @@ const Dashboard = () => {
     { label: 'Cancelled', value: 1, color: '#f44336' },
     { label: 'Ready For Review', value: 10, color: '#ffeb3b' },
     { label: 'In Progress', value: 54, color: '#2196f3' },
+  ];
+
+  const kycApplications = [
+    { date: 'May 15, 2024', time: '14:12:27', name: 'KÁROLY-EDWARD RÁCZ', email: 'sdhfg@dasdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
+    { date: 'May 15, 2024', time: '14:02:06', name: 'KÁROLY-EDWARD RÁCZ', email: 'dsadas@dsadas.com', type: 'aiscan2', risk: 'Not calculated', status: 'Customer Processing' },
+    { date: 'May 03, 2024', time: '08:57:14', name: 'KÁROLY-EDWARD RÁCZ', email: 'fsafas@dasdas.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
+    { date: 'May 03, 2024', time: '08:33:55', name: 'KÁROLY-EDWARD RÁCZ', email: 'sfasfas@fasfa.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
+    { date: 'May 03, 2024', time: '08:23:24', name: 'KÁROLY-EDWARD RÁCZ', email: 'dsada@fsfasfa.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
+    { date: 'May 01, 2024', time: '10:45:58', name: 'ssdghj', email: 'dsafg@fasfa.com', type: 'aiscan2', risk: 'Not calculated', status: 'User Accepted KYC Invitation' },
+    { date: 'Mar 22, 2024', time: '09:57:46', name: 'KÁROLY-EDWARD RÁCZ', email: 'dasaggo@sdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
+    { date: 'Mar 22, 2024', time: '09:53:16', name: 'KÁROLY-EDWARD RÁCZ', email: 'dafasf@sdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
   ];
 
   return (
@@ -55,16 +65,7 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {[
-              { date: 'May 15, 2024', time: '14:12:27', name: 'KÁROLY-EDWARD RÁCZ', email: 'sdhfg@dasdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-              { date: 'May 15, 2024', time: '14:02:06', name: 'KÁROLY-EDWARD RÁCZ', email: 'dsadas@dsadas.com', type: 'aiscan2', risk: 'Not calculated', status: 'Customer Processing' },
-              { date: 'May 03, 2024', time: '08:57:14', name: 'KÁROLY-EDWARD RÁCZ', email: 'fsafas@dasdas.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-              { date: 'May 03, 2024', time: '08:33:55', name: 'KÁROLY-EDWARD RÁCZ', email: 'sfasfas@fasfa.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-              { date: 'May 03, 2024', time: '08:23:24', name: 'KÁROLY-EDWARD RÁCZ', email: 'dsada@fsfasfa.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-              { date: 'May 01, 2024', time: '10:45:58', name: 'ssdghj', email: 'dsafg@fasfa.com', type: 'aiscan2', risk: 'Not calculated', status: 'User Accepted KYC Invitation' },
-              { date: 'Mar 22, 2024', time: '09:57:46', name: 'KÁROLY-EDWARD RÁCZ', email: 'dasaggo@sdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-              { date: 'Mar 22, 2024', time: '09:53:16', name: 'KÁROLY-EDWARD RÁCZ', email: 'dafasf@sdada.com', type: 'aiscan2', risk: 'LOW', status: 'Approved' },
-            ].map((item, index) => (
+            {kycApplications.map((item, index) => (
               <tr key={index}>
                 <td>
                   {item.date}
