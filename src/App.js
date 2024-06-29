@@ -7,38 +7,41 @@ import { IoIosCheckmark } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 import { GrTextAlignFull } from "react-icons/gr";
 
-const data = {
-  labels: ['Completed', 'Pending'],
-  datasets: [
-    {
-      label: 'KYC Status',
-      data: [11, 1],
-      backgroundColor: ['#4caf50', '#ff9800'],
-      hoverOffset: 4,
-    },
-  ],
-};
-
 const Dashboard = () => {
+  const summaryData = [
+    { label: 'Approved', value: 11, color: '#4caf50' },
+    { label: 'Rejected', value: 1, color: '#ff9800' },
+    { label: 'Cancelled', value: 1, color: '#f44336' },
+    { label: 'Ready For Review', value: 10, color: '#ffeb3b' },
+    { label: 'In Progress', value: 54, color: '#2196f3' },
+  ];
+
   return (
     <div className="dashboard">
       <h1 className="float-left-dashboard">Dashboard</h1>
       <div className="inner-block">
         <h2 className="float-left-title">KYC Application Reports</h2>
         <div className="summary-cards">
-          {[
-            { label: 'Approved', value: 11, color: '#4caf50' },
-            { label: 'Rejected', value: 1, color: '#ff9800' },
-            { label: 'Cancelled', value: 1, color: '#f44336' },
-            { label: 'Ready For Review', value: 10, color: '#ffeb3b' },
-            { label: 'In Progress', value: 54, color: '#2196f3' },
-          ].map((item, index) => (
-            <div key={index} className="card" style={{ backgroundColor: item.color }}>
-              <Pie data={{ ...data, datasets: [{ ...data.datasets[0], data: [item.value, 77 - item.value], backgroundColor: [item.color, '#e0e0e0'] }] }} />
-              <div className="card-label">{item.label}</div>
-              <div className="card-value">{item.value}</div>
-            </div>
-          ))}
+          {summaryData.map((item, index) => {
+            const chartData = {
+              labels: ['Completed', 'Pending'],
+              datasets: [
+                {
+                  label: 'KYC Status',
+                  data: [item.value, 100 - item.value],
+                  backgroundColor: [item.color, '#e0e0e0'],
+                  hoverOffset: 4,
+                },
+              ],
+            };
+            return (
+              <div key={index} className="card" style={{ backgroundColor: item.color }}>
+                <Pie data={chartData} />
+                <div className="card-label">{item.label}</div>
+                <div className="card-value">{item.value}</div>
+              </div>
+            );
+          })}
         </div>
 
         <table>

@@ -93,11 +93,6 @@ td span {
   margin-right: 15px;
 }
 
-.float-left {
-  display: flex;
-  align-items: center;
-}
-
 .margin-left-from-icon {
   margin-left: 5px;
 }
